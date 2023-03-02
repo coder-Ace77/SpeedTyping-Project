@@ -10,7 +10,6 @@ setInterval(()=>{
         if(time<10){
             el.innerText="Time:00:0"+time;
         }
-        time=time-1;
         var x=document.getElementById("myTextarea").value;
         var arr=x.split(" ");
         var y=st_string.split(" ");
@@ -22,8 +21,8 @@ setInterval(()=>{
         }
         ws=Math.floor((ws)/(20-time)*60)+" w/m"
         document.getElementById("result").innerText=ws;
+        time=time-1;
     }
-    time=time-1;
 },1000);
 
 addEventListener('keydown',(event)=>{
