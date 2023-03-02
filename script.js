@@ -1,32 +1,31 @@
 let time = 20;
+let lock = 0;
+st_string = document.getElementById('raw_text').innerText;
+console.log("St_string",st_string);
 setInterval(()=>{
     let el = document.getElementById('timer');
-    if(time>=0){
+    if(lock && time>=0){
         let text = el.innerText;
         el.innerText="Time:00:"+time;
         if(time<10){
             el.innerText="Time:00:0"+time;
         }
+        time=time-1;
+        var x=document.getElementById("myTextarea").value;
+        var arr=x.split(" ");
+        var y=st_string.split(" ");
+        let ws=0;
+        for(let i=0;i<arr.length;i++){
+            if(arr[i]==y[i]){
+                ws=ws+1;
+            }
+        }
+        ws=Math.floor((ws)/(20-time)*60)+" w/m"
+        document.getElementById("result").innerText=ws;
     }
     time=time-1;
 },1000);
-setTimeout(()=>{
-    var x=document.getElementById("myTextarea").value;
-    var arr=x.split(" ");
-    var y=st_string.split(" ");
-    console.log(arr,y);
-    let ws=0;
-    for(let i=0;i<arr.length;i++){
-        if(arr[i]==y[i]){
-            ws=ws+1;
-        }
-    }
-    ws=ws+" w/m"
-    document.getElementById("result").innerText=ws;
-},20*1000);
 
-let lock = 0;
-st_string = document.getElementById('raw_text').innerText;
 addEventListener('keydown',(event)=>{
     if(lock){
         setTimeout(()=>{
@@ -46,15 +45,14 @@ addEventListener('keydown',(event)=>{
                 flag=i;
                 w=w+"\u005F"
             }
-            w=w+st_string.slice(c_text.length);
             if(event.key=="Enter"){
                 y=y+"<br>";
-                w=w+"<br>";
             }
+            w=w+st_string.slice(c_text.length);
             console.log(w);
             document.getElementById("raw_text").innerText=w;
             if(event.key==" ")
-                y=y+" ";
+                y=y+"\u2591";
             y=y+"\u2591";
             user.innerHTML=y;
         },20);

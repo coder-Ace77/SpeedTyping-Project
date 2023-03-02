@@ -47,7 +47,7 @@ h1{
 }
 textarea {
     border: none;
-    overflow: auto;
+    /* overflow: auto; */
     outline: none;
     background-color: transparent;
     box-shadow: none;
@@ -64,6 +64,7 @@ textarea {
 .text{
     font-size: 30px;
     font-family:monospace;
+    /* overflow: auto; */
     color: rgb(99, 105, 110);
     position: absolute;
     z-index: -1;
