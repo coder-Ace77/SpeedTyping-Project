@@ -1,19 +1,22 @@
-let time = 20;
+let time = 30;
 let lock = 0;
 let index = 0;
-st_string = document.getElementById('raw_text').innerText;
-div_string = "";
-ans_string = "";
+let st_string = document.getElementById('raw_text').innerText;
+let div_string = "";
+let ans_string = "";
+let back_string = st_string;
+
+function replace(str,index,replace){
+    return str.slice(0,index)+ replace + str.slice(index+1); 
+}
 setInterval(()=>{
     let el = document.getElementById('timer');
     if(lock && time>=0){
-        let text = el.innerText;
         el.innerText="Time:00:"+time;
         if(time<10){
             el.innerText="Time:00:0"+time;
         }
-        var x=document.getElementById("myTextarea").value;
-        var arr=x.split(" ");
+        var arr=ans_string.split(" ");
         var y=st_string.split(" ");
         let ws=0;
         for(let i=0;i<arr.length;i++){
@@ -21,7 +24,7 @@ setInterval(()=>{
                 ws=ws+1;
             }
         }
-        ws=Math.floor((ws)/(20-time)*60)+" w/m"
+        ws=Math.floor((ws)/(30-time)*60)+" w/m"
         document.getElementById("result").innerText=ws;
         time=time-1;
     }
@@ -31,36 +34,39 @@ addEventListener('keydown',(event)=>{
     if(lock){
         setTimeout(()=>{
             console.log(event.key)
-            if(event.key=="Backspace" || event.key=="Shift" || event.key=="Ctrl"){
+            div_string=div_string.slice(0,div_string.length-1);
+            if(event.key=="Backspace" || event.key=="Shift" || event.key=="Control" || event.key=="Alt" || event.key=="CapsLock"){
                 console.log("Backspace");
+                if(event.key=="Backspace" && index>0){
+                    ans_string=ans_string.slice(0,ans_string.length-1);
+                    div_string=div_string.slice(0,div_string.length-26);
+                    back_string=replace(back_string,index-1,st_string[index-1]);
+                    index=index-1;
+                }
             }
             else{
-                div_string=div_string.slice(0,div_string.length-1);
                 console.log("Inside:",event.key);
                 if(event.key=="Enter"){
                     ans_string = ans_string + " ";
-                    div_string = div_string + "<br>";
+                    div_string = div_string + '<span class=""><br></span>'
                 }
-                // if(event.key=="Backspace"){
-                //     ans_string = ans_string.slice(0,ans_string.length-1);
-                //     div_string = 
-                // }
                 else{
                     ans_string = ans_string + event.key;
                     if(event.key==st_string[index]){
-                        div_string = div_string + '<span class="green">'+event.key+'</span>'
+                        div_string = div_string + '<span class="gre">'+event.key+'</span>'
                     }
                     else{
                         div_string = div_string + '<span class="red">'+event.key+'</span>'
                     }
+                    back_string=replace(back_string,index,"_");
                 }
-
-                div_string = div_string + "_";
                 index=index+1;
-                console.log(div_string,ans_string);
-                document.getElementById('user-input').innerHTML=div_string;
             }
-
+            div_string = div_string + "\u2592";
+            console.log(div_string,ans_string);
+            console.log(back_string);
+            document.getElementById('user-input').innerHTML=div_string;
+            document.getElementById('raw_text').innerText=back_string;
         },20);
     }
     lock=1;

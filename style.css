@@ -46,7 +46,7 @@ h1{
 }
 textarea {
     border: none;
-    /* overflow: auto; */
+    overflow: auto;
     outline: none;
     background-color: transparent;
     box-shadow: none;
@@ -63,7 +63,7 @@ textarea {
 .text{
     font-size: 30px;
     font-family:monospace;
-    overflow: auto;
+    overflow: hidden;
     color: rgb(99, 105, 110);
     position: absolute;
     z-index: -1;
@@ -92,7 +92,7 @@ textarea {
 .vanish{
     color:transparent;
 }
-.green{
+.gre{
     color:green;
 }
 .red{
