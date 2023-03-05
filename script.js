@@ -1,7 +1,9 @@
 let time = 20;
 let lock = 0;
+let index = 0;
 st_string = document.getElementById('raw_text').innerText;
-console.log("St_string",st_string);
+div_string = "";
+ans_string = "";
 setInterval(()=>{
     let el = document.getElementById('timer');
     if(lock && time>=0){
@@ -28,32 +30,37 @@ setInterval(()=>{
 addEventListener('keydown',(event)=>{
     if(lock){
         setTimeout(()=>{
-            let c_text = document.getElementById("myTextarea").value;
-            let user = document.getElementById("user-input");
-            let y="";
-            let w="";
-            let s_string="";
-            c_text = c_text.trim();
-            for(let i=0;i<c_text.length;i++){
-                if(c_text[i]==st_string[i]){
-                    y=y+'<span class="green">'+c_text[i]+'</span>'
+            console.log(event.key)
+            if(event.key=="Backspace" || event.key=="Shift" || event.key=="Ctrl"){
+                console.log("Backspace");
+            }
+            else{
+                div_string=div_string.slice(0,div_string.length-1);
+                console.log("Inside:",event.key);
+                if(event.key=="Enter"){
+                    ans_string = ans_string + " ";
+                    div_string = div_string + "<br>";
                 }
+                // if(event.key=="Backspace"){
+                //     ans_string = ans_string.slice(0,ans_string.length-1);
+                //     div_string = 
+                // }
                 else{
-                    y=y+'<span class="red">'+c_text[i]+'</span>'
+                    ans_string = ans_string + event.key;
+                    if(event.key==st_string[index]){
+                        div_string = div_string + '<span class="green">'+event.key+'</span>'
+                    }
+                    else{
+                        div_string = div_string + '<span class="red">'+event.key+'</span>'
+                    }
                 }
-                flag=i;
-                w=w+"\u005F"
+
+                div_string = div_string + "_";
+                index=index+1;
+                console.log(div_string,ans_string);
+                document.getElementById('user-input').innerHTML=div_string;
             }
-            if(event.key=="Enter"){
-                y=y+"<br>";
-            }
-            w=w+st_string.slice(c_text.length);
-            console.log(w);
-            document.getElementById("raw_text").innerText=w;
-            if(event.key==" ")
-                y=y+"\u2591";
-            y=y+"\u2591";
-            user.innerHTML=y;
+
         },20);
     }
     lock=1;
