@@ -2,7 +2,9 @@ let time = 30;
 let lock = 0;
 let index = 0;
 let st_string = document.getElementById('raw_text').innerText;
-let div_string = "";
+let div_string = "\u2592";
+document.getElementById('user-input').innerHTML=div_string;
+
 let ans_string = "";
 let back_string = st_string;
 
@@ -12,9 +14,9 @@ function replace(str,index,replace){
 setInterval(()=>{
     let el = document.getElementById('timer');
     if(lock && time>=0){
-        el.innerText="Time:00:"+time;
+        el.innerText=+time;
         if(time<10){
-            el.innerText="Time:00:0"+time;
+            el.innerText=time;
         }
         var arr=ans_string.split(" ");
         var y=st_string.split(" ");

@@ -1,6 +1,7 @@
 body{
     font-family: sans-serif;
     margin: 0%;
+    background-color: #bb7acc;
 }
 .nav-main{
     color:rgb(53, 16, 187);
@@ -13,6 +14,10 @@ body{
     position:absolute;
     top: 2px;
     left: 5px;
+    color:#744c7f;
+    font-size: 40px;
+    margin-top: 20px;
+    margin-left:10px;
 }
 .nav-item{
     padding: 10px 20px;
@@ -86,7 +91,8 @@ textarea {
 }
 
 #timer{
-    color:aliceblue;
+    color:#bfb71e;
+    font-size: 20px;
 }
 
 .vanish{
@@ -117,9 +123,11 @@ textarea {
     box-sizing: border-box;
 }
 #result{
-    color:black;
+    color:#bfb71e;
     size:20px;
     position: absolute;
     z-index:1;
     top:0vh;
+    right:20px;
+    font-size: 20px;
 }

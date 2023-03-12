@@ -8,7 +8,8 @@ html(lang="en")
         link(rel="stylesheet", href="CSS\\style.css")
     body 
         nav
-            img(src="Images\\logo.jpg", alt="Bad connection").nav-logo
+            //- img(src="Images\\logo.jpg", alt="Bad connection").nav-logo
+            .nav-logo Company name
             div.nav-main
                 span.nav-item How it works
                 span.nav-item Services
@@ -16,15 +17,16 @@ html(lang="en")
                 span.nav-item About
                 span.nav-item-active Contact US
             main
-                img(src="Images\\background.jpg", alt="").background
+                //- img(src="Images\\background.jpg", alt="").background
                 div.article
-                    h1 Beautiful Landing Page
-                    h2#timer Time:00:30
+                    //- h1 Beautiful Landing Page
+                    #timer 30
+                    br
                     .container
                         span.blank#blank
                         span.text#raw_text A graph is regular if the degree of every node is a constant d. A graph is complete if the degree of every node is n - 1, i.e., the graph contains all possible edges between the nodes.
                         textarea#myTextarea(name="a", cols="100", rows="10" autofocus) 
                         span.text#user-input 
                     br
-                    div#result Result
+                    div#result 0 w/m
         script(src="script.js")
