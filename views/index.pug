@@ -1,0 +1,34 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+        <link rel="stylesheet" href="/style.css">
+    body 
+        nav
+            img(src="logo.png", alt="Lgo").nav-logo
+            div.nav-main
+                span.nav-item How it works
+                span.nav-item Services
+                span.nav-item Blog
+                span.nav-item About
+                span.nav-item-active Contact US
+            main
+                img(src="background.jpg", alt="").background
+                div.article
+                    h1 Beautiful Landing Page
+                    h2#timer Time:00:30
+                    h2 To go to next line press "ENTER"
+                    div.container
+                        span.blank#blank
+                        span.text#raw_text
+                        A graph is regular if the degree of every node is a constant d. A graph is
+                        complete if the degree of every node is n - 1, i.e., the graph contains all possible
+                        edges between the nodes.
+                        textarea#myTextarea(name="a", cols="100", rows="10" autofocus) 
+                        span.text#user-input 
+                    br
+                    div#result Result
+        script(src="../script.js")

@@ -1,0 +1,27 @@
+{
+  "name": "weekend-project",
+  "version": "1.0.0",
+  "description": "Weekend Project by team Weekend Warriors",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coder-Ace77/Weekend-Project.git"
+  },
+  "author": "Mitul, Adil and Ramesh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coder-Ace77/Weekend-Project/issues"
+  },
+  "homepage": "https://github.com/coder-Ace77/Weekend-Project#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "mysql2": "^3.2.0",
+    "nodemon": "^2.0.21",
+    "path": "^0.12.7",
+    "pug": "^3.0.2"
+  }
+}
