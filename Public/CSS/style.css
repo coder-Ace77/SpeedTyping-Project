@@ -4,10 +4,10 @@ body{
     background-color: #bb7acc;
 }
 .nav-main{
-    color:rgb(53, 16, 187);
+    color:#5c3b65;
     position: absolute;
     top: 25px;
-    right: 0;
+    right: 010px;
     height:50px;
 }
 .nav-logo{
@@ -21,14 +21,22 @@ body{
 }
 .nav-item{
     padding: 10px 20px;
+    margin-right: 20px;
+    border-radius: 20px;
 }
-.nav-item-active{
-    background-color: rgb(53, 16, 187);
-    padding: 10px;
-    color: white;
+.nav-item:hover{
+    padding: 10px 20px;
+    background-color:#eeb5fc;
     border-radius: 20px;
     margin-right: 20px;
 }
+.nav-item-active{
+    padding: 10px 20px;
+    background-color:#eeb5fc;
+    border-radius: 20px;
+    margin-right: 20px;
+}
+
 .background{
     position: absolute;
     top:80px;
