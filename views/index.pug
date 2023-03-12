@@ -5,10 +5,10 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title Document
-        <link rel="stylesheet" href="/style.css">
+        link(rel="stylesheet", href="CSS\\style.css")
     body 
         nav
-            img(src="logo.png", alt="Lgo").nav-logo
+            img(src="Images\\logo.jpg", alt="Bad connection").nav-logo
             div.nav-main
                 span.nav-item How it works
                 span.nav-item Services
@@ -16,12 +16,11 @@ html(lang="en")
                 span.nav-item About
                 span.nav-item-active Contact US
             main
-                img(src="background.jpg", alt="").background
+                img(src="Images\\background.jpg", alt="").background
                 div.article
                     h1 Beautiful Landing Page
                     h2#timer Time:00:30
-                    h2 To go to next line press "ENTER"
-                    div.container
+                    .container
                         span.blank#blank
                         span.text#raw_text
                         A graph is regular if the degree of every node is a constant d. A graph is
@@ -31,4 +30,4 @@ html(lang="en")
                         span.text#user-input 
                     br
                     div#result Result
-        script(src="../script.js")
+        script(src="script.js")
