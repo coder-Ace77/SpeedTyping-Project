@@ -51,6 +51,15 @@ addEventListener('keydown',(event)=>{
                     div_string = div_string + '<span class=""><br></span>'
                 }
                 else{
+                    if(index>0 && ans_string[index-1]==event.key && ans_string[index-1]==" ")
+                    {
+                        div_string = div_string +"\u2592";
+                        console.log(div_string,ans_string);
+                        console.log(back_string);
+                        document.getElementById('user-input').innerHTML=div_string;
+                        document.getElementById('raw_text').innerText=back_string;
+                        return ;
+                    }
                     ans_string = ans_string + event.key;
                     if(event.key==st_string[index]){
                         div_string = div_string + '<span class="gre">'+event.key+'</span>'
@@ -62,7 +71,7 @@ addEventListener('keydown',(event)=>{
                 }
                 index=index+1;
             }
-            div_string = div_string + "\u2592";
+            div_string = div_string +"\u2592";
             console.log(div_string,ans_string);
             console.log(back_string);
             document.getElementById('user-input').innerHTML=div_string;
