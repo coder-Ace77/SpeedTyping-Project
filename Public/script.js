@@ -34,7 +34,6 @@ setInterval(()=>{
     if(time==0){
         lock=2;
     }
-
 },1000);
 
 addEventListener('keydown',(event)=>{
@@ -85,7 +84,9 @@ addEventListener('keydown',(event)=>{
             document.getElementById('raw_text').innerText=back_string;
         },20);
     }
-    if(lock==0)lock=1;
+    if(lock==0){
+        lock=1;
+    }
 })
 
 
