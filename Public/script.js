@@ -31,10 +31,13 @@ setInterval(()=>{
         document.getElementById("result").innerText=ws;
         time=time-1;
     }
+    if(time==0){
+        lock=2;
+    }
 },1000);
 
 addEventListener('keydown',(event)=>{
-    if(lock){
+    if(lock==1){
         setTimeout(()=>{
             console.log(event.key)
             div_string=div_string.slice(0,div_string.length-1);
@@ -81,7 +84,9 @@ addEventListener('keydown',(event)=>{
             document.getElementById('raw_text').innerText=back_string;
         },20);
     }
-    lock=1;
+    if(lock==0){
+        lock=1;
+    }
 })
 
 
