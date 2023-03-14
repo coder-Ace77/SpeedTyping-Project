@@ -1,6 +1,7 @@
 let time = 30;
 let lock = 0;
 let index = 0;
+let set_time = 30;
 let st_string = document.getElementById('raw_text').innerText;
 let div_string = "\u2592";
 document.getElementById('user-input').innerHTML=div_string;
@@ -26,7 +27,7 @@ setInterval(()=>{
                 ws=ws+1;
             }
         }
-        ws=Math.floor((ws)/(30-time)*60)+" w/m"
+        ws=Math.floor((ws)/(set_time-time)*60)+" w/m"
         document.getElementById("result").innerText=ws;
         time=time-1;
     }
@@ -82,3 +83,29 @@ addEventListener('keydown',(event)=>{
     }
     lock=1;
 })
+
+
+function Set15(){
+    console.log("Pressed");
+    if(lock==0){
+        time=15;
+        document.getElementById('timer').innerText=15;
+        set_time=15;
+    }
+}
+
+function Set30(){
+    console.log("Pressed");
+    if(lock==0){
+        time=30;
+        document.getElementById('timer').innerText=30;
+        set_time = 30;
+    }
+}function Set60(){
+    console.log("Pressed");
+    if(lock==0){
+        time=60;
+        document.getElementById('timer').innerText=60;
+        set_time = 60;
+    }
+}
