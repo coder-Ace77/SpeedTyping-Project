@@ -1,10 +1,15 @@
 const path = require('path');
-
+const mongoose = require('mongoose')
 const express = require('express');
 const bodyParser = require('body-parser');
-
 const app = express();
 
+const Schema =mongoose.Schema;
+
+const text = new Schema({
+    text:String
+})
+const string = mongoose.model('text',text);
 app.set('view engine', 'pug');
 app.set('views', 'views');
 app.use(express.static(path.join(__dirname,'Public')));
@@ -14,11 +19,29 @@ const generalRoutes = require('./routes/main');
 app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', generalRoutes.routes);
-// app.use(shopRoutes.routes);
+app.use('/admin',(req,res)=>{
+    res.sendFile(path.join(__dirname,"Public","input.html"));
+});
 
-// app.use((req, res, next) => {
-//   res.status(404).render('404', { pageTitle: 'Page Not Found' });
-// });
+app.post('/submit',(req,res)=>{
+    const x = req.body.input;
+    console.log(x);
+    const new_text = new string({text:x});
+    new_text.save().then((result)=>{
+        console.log("Saved!!");
+        res.redirect('/admin');
+    })
+});
+app.use('/', (req,res)=>{
+    string.find().then(result=>{
+        console.log(result,result.length);
+        const no = Math.floor((Math.random())*result.length);
+        const injector = result[no].text;
+        res.render('index.pug',{text:injector});
+    })
+});
 
-app.listen(3000);
+mongoose.connect('mongodb+srv://mitulvardhan:mitula123@cluster0.rzs4ajh.mongodb.net/?retryWrites=true&w=majority').then(result=>{
+    console.log("Connected");
+    app.listen(5000);
+})
