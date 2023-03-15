@@ -9,7 +9,7 @@ html(lang="en")
     body 
         nav
             //- img(src="Images\\logo.jpg", alt="Bad connection").nav-logo
-            .nav-logo Company name
+            .nav-logo Weekend Warriors
             div.nav-main
                 button.nav-item(onclick="Set15()") Time 15s
                 button.nav-item(onclick="Set30()") Time 30s
@@ -24,8 +24,9 @@ html(lang="en")
                     .container
                         span.blank#blank
                         span.text#raw_text #{text}
-                        textarea#myTextarea(name="a", cols="100", rows="10" autofocus) 
+                        textarea#myTextarea(name="a", cols="100", rows="10" autofocus spellcheck="false") 
                         span.text#user-input
+                        
                     br
                     div#result 0 w/m
         script(src="script.js")
