@@ -2,44 +2,49 @@
     outline: solid green 2px;
 } */
 
-body{
+body {
     font-family: sans-serif;
     margin: 0%;
-    background-color: #bb7acc;
+    background-color: #404258;
 }
-.nav-main{
-    color:#5c3b65;
+
+.nav-main {
+    color: #EEEEEE;
     position: absolute;
     top: 25px;
     right: 010px;
-    height:50px;
+    height: 50px;
 }
-.nav-logo{ 
-    position:absolute;
+
+.nav-logo {
+    position: absolute;
     top: 2px;
     left: 5px;
-    color:#744c7f;
+    color: #744c7f;
     font-size: 40px;
     margin-top: 20px;
-    margin-left:10px;
+    margin-left: 30px;
+    width: 100px;
 }
-button{
+
+button {
     padding: 10px 20px;
     border-radius: 20px;
     border: none;
-    margin:20px;
+    margin: 20px;
     background-color: #d092dd;
-    color:#5c3b65;
-    font-size:20px;
+    color: #5c3b65;
+    font-size: 20px;
 }
 
-button:hover{
+button:hover {
     padding: 10px 20px;
     border-radius: 20px;
     /* border: none; */
-    margin:20px;
-    background-color:#eeb5fc;
+    margin: 20px;
+    background-color: #eeb5fc;
 }
+
 /* .nav-item{
     padding: 10px 20px;
     margin-right: 20px;
@@ -51,33 +56,35 @@ button:hover{
     border-radius: 20px;
     margin-right: 20px;
 } */
-.nav-item-active{
+.nav-item-active {
     padding: 10px 20px;
-    background-color:#eeb5fc;
+    background-color: #eeb5fc;
     border-radius: 20px;
     margin-right: 20px;
 }
 
-.background{
+.background {
     position: absolute;
-    top:80px;
+    top: 80px;
     z-index: -2;
-    width:100%;
+    width: 100%;
     height: 100vh;
 }
 
-.article{
+.article {
     position: absolute;
     top: 30%;
     width: 80%;
-    left:10%;
-    color:rgb(213, 209, 209);
+    left: 10%;
+    color: rgb(213, 209, 209);
 }
-h1{
-    font-family:'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+
+h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
     font-size: 50px;
-    color:aliceblue;
+    color: aliceblue;
 }
+
 textarea {
     border: none;
     overflow: auto;
@@ -85,83 +92,100 @@ textarea {
     background-color: transparent;
     box-shadow: none;
     font-size: 30px;
-    font-family:monospace;
-    color:transparent;
+    font-family: monospace;
+    color: transparent;
     position: absolute;
     resize: none;
     word-spacing: normal;
     font-weight: 200;
     z-index: 0;
-    width:100%;
+    width: 100%;
 }
-.text{
+
+.text {
     font-size: 30px;
-    font-family:monospace;
+    font-family: monospace;
     overflow: hidden;
     color: rgb(99, 105, 110);
     position: absolute;
     z-index: -1;
-    top:1px;
-    left:1px;
+    top: 1px;
+    left: 1px;
     font-weight: 10;
     /* font-stretch: expanded; */
-    width:95%;
+    width: 95%;
     /* outline: solid green 2px; */
     box-sizing: border-box;
 }
 
-.container{
+.container {
     position: relative;
 }
-#Spacer{
+
+#Spacer {
     position: absolute;
-    top:0;
+    top: 0;
     z-index: 0;
 }
 
-#timer{
-    color:#bfb71e;
-    font-size: 20px;
+.vanish {
+    color: transparent;
 }
 
-.vanish{
-    color:transparent;
+.gre {
+    color: #ACB1D6;
 }
-.gre{
-    color:green;
+
+.red {
+    color: red;
 }
-.red{
-    color:red;
+
+#user-input {
+    color: black;
+    width: 1000px;
 }
-#user-input{
-    color:black;
-    width:1000px;
-}
-.blank{
+
+.blank {
     font-size: 30px;
-    font-family:monospace;
+    font-family: monospace;
     overflow: auto;
     position: absolute;
     z-index: -1;
-    top:1px;
-    left:1px;
+    top: 1px;
+    left: 1px;
     font-weight: 10;
     /* font-stretch: expanded; */
-    width:900px;
+    width: 900px;
     /* outline: solid green 2px; */
     box-sizing: border-box;
 }
-#result{
-    color:#bfb71e;
-    size:20px;
-    position: absolute;
-    z-index:1;
-    top:0vh;
-    right:20px;
-    font-size: 20px;
-}
 
-.refresh{
+
+.refresh {
     position: absolute;
     margin-left: 20px;
+}
+
+#result {
+    color: #bfb71e;
+    font-weight: bold;
+    font-size: 20px;
+    width: 100px;
+    /* flex: content; */
+}
+
+#timer {
+    color: #bfb71e;
+    font-size: 20px;
+    font-weight: bold;
+    width: 50px;
+    /* flex: content; */
+}
+
+.top {
+    margin: 20px 0px;
+    height: 10vh;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
 }
