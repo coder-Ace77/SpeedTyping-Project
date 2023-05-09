@@ -1,4 +1,3 @@
-
 //Variables
 
 let time = 30;
@@ -18,6 +17,7 @@ start_run();
 let ans_string = "";
 let back_string = original;
 let spe_index = 0;
+let blink = false;
 
 //Make array
 
@@ -141,3 +141,18 @@ addEventListener('keydown', (event) => {
         lock = 1;
     }
 })
+
+// ---------------------------------Blink it------------------------------------------------
+
+setInterval(() => {
+    console.log("blinked:", blink);
+    if (blink == true) {
+        l[index] = '<span class="t">\u258F</span>';
+    }
+    else {
+        l[index] = '<span class="y">\u258F</span>';
+    }
+    blink = !blink;
+    typed = l.join("");
+    document.getElementById('user-input').innerHTML = typed;
+}, 1000);
