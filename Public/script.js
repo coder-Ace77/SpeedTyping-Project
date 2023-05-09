@@ -91,7 +91,7 @@ addEventListener('keydown', (event) => {
         setTimeout(() => {
 
             // If any non needed key pressed
-            if (event.key == "Shift" || event.key == "Control" || event.key == "Alt") {
+            if (event.key == "Shift" || event.key == "Control" || event.key == "Alt" || event.key == "Meta" || event.key == "CapsLock") {
                 return;
             }
             // Go to next line
