@@ -13,7 +13,6 @@ const string = mongoose.model('text', text);
 app.set('view engine', 'pug');
 app.set('views', 'views');
 app.use(express.static(path.join(__dirname, 'Public')));
-// const adminData = require('./routes/admin');
 const generalRoutes = require('./routes/main');
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -32,16 +31,8 @@ app.post('/submit', (req, res) => {
     })
 });
 app.use('/', (req, res) => {
-    // string.find().then(result=>{
-    //     console.log(result,result.length);
-    //     const no = Math.floor((Math.random())*result.length);
-    //     const injector = result[no].text;
-    // res.render('index.pug',{text:injector});
-    // })
     res.sendFile(path.join(__dirname, "views", "index.html"));
 });
 
-// mongoose.connect('mongodb+srv://mitulvardhan:mitula123@cluster0.rzs4ajh.mongodb.net/?retryWrites=true&w=majority').then(result=>{
-//     console.log("Connected");
 app.listen(5000);
 // })
