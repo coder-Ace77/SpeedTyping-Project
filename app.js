@@ -11,9 +11,7 @@ const text = new Schema({
 })
 const string = mongoose.model('text', text);
 app.set('view engine', 'pug');
-app.set('views', 'views');
 app.use(express.static(path.join(__dirname, 'Public')));
-const generalRoutes = require('./routes/main');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -33,6 +31,4 @@ app.post('/submit', (req, res) => {
 app.use('/', (req, res) => {
     res.sendFile(path.join(__dirname, "views", "index.html"));
 });
-
 app.listen(5000);
-// })
