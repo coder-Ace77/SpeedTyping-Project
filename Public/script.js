@@ -90,6 +90,15 @@ addEventListener('keydown', (event) => {
     if (lock == 1) {
         setTimeout(() => {
 
+            //Keyboard
+
+            let k = event.key.toLowerCase();
+            console.log("k:", k);
+
+            document.getElementById(k).style.backgroundColor = "white";
+            setTimeout((k) => {
+                document.getElementById(k).style.backgroundColor = "#925050";
+            }, 200, k);
             // If any non needed key pressed
             if (event.key == "Shift" || event.key == "Control" || event.key == "Alt" || event.key == "Meta" || event.key == "CapsLock") {
                 return;

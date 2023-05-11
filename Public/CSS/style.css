@@ -8,6 +8,12 @@ body {
     background-color: #404258;
 }
 
+.main-box {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+}
+
 textarea {
     border: none;
     overflow: auto;
@@ -52,10 +58,11 @@ textarea {
 
 /* -----------------------------------------Text styling ---------------------------------------------------- */
 .article {
-    position: absolute;
-    top: 30%;
-    width: 80%;
-    left: 10%;
+    position: relative;
+    top: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     color: rgb(213, 209, 209);
 }
 
@@ -85,8 +92,9 @@ textarea {
 
 .container {
     position: relative;
-    width: 93%;
-    height: 20vh;
+    width: 90%;
+    height: 15vh;
+    /* margin-left: 30px; */
 }
 
 /* ------------------------------------------Dialogbox------------------------------------- */
@@ -103,7 +111,7 @@ textarea {
 
 .top {
     margin: 20px 0px;
-    height: 10vh;
+    height: 5vh;
     width: 90%;
     display: flex;
     justify-content: space-between;
