@@ -96,9 +96,13 @@ addEventListener('keydown', (event) => {
             console.log("k:", k);
 
             document.getElementById(k).style.backgroundColor = "white";
+            document.getElementById(k).style.color = "black";
+
             setTimeout((k) => {
                 document.getElementById(k).style.backgroundColor = "#925050";
-            }, 200, k);
+                document.getElementById(k).style.color = "white";
+
+            }, 350, k);
             // If any non needed key pressed
             if (event.key == "Shift" || event.key == "Control" || event.key == "Alt" || event.key == "Meta" || event.key == "CapsLock") {
                 return;
