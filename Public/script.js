@@ -13,6 +13,8 @@ const l = [];
 const org_arr = [];
 const special_index = [];
 
+var audio = new Audio('Audio/typewriter.wav');
+
 start_run();
 let ans_string = "";
 let back_string = original;
@@ -91,6 +93,8 @@ addEventListener('keydown', (event) => {
         setTimeout(() => {
 
             //Keyboard
+
+            // audio.play();
 
             let k = event.key.toLowerCase();
             console.log("k:", k);

@@ -9,6 +9,9 @@ h1 {
     text-align: center;
     font-size: 12px;
     font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .keyboard__row {
@@ -38,7 +41,7 @@ h1 {
     width: 3.3em;
     height: 100%;
     box-sizing: border-box;
-    cursor: pointer;
+    /* cursor: pointer; */
     -webkit-user-select: none;
     border: 1px solid #444;
     box-shadow: 0 0.2em 0 0.05em #222;
