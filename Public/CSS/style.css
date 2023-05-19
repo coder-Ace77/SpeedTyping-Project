@@ -12,24 +12,6 @@ body {
 .main-box {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-}
-
-textarea {
-    border: none;
-    overflow: auto;
-    outline: none;
-    background-color: transparent;
-    box-shadow: none;
-    font-size: 30px;
-    font-family: monospace;
-    color: transparent;
-    position: absolute;
-    resize: none;
-    word-spacing: normal;
-    font-weight: 200;
-    z-index: 0;
-    width: 100%;
 }
 
 /*--------------------------------------------------Nav Bar-----------------------------------------------------*/
@@ -65,6 +47,7 @@ textarea {
     align-items: center;
     flex-direction: column;
     color: rgb(213, 209, 209);
+    margin-bottom: 35px;
 }
 
 .text-original {
@@ -95,11 +78,7 @@ textarea {
     position: relative;
     width: 90%;
     height: 15vh;
-    /* margin-left: 30px; */
 }
-
-/* ------------------------------------------Dialogbox------------------------------------- */
-
 
 /* --------------------------------------------Helper ------------------------------------ */
 .gre {

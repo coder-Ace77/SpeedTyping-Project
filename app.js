@@ -12,7 +12,6 @@ const text = new Schema({
 const string = mongoose.model('text', text);
 app.set('view engine', 'pug');
 app.use(express.static(path.join(__dirname, 'Public')));
-
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/admin', (req, res) => {
@@ -29,6 +28,10 @@ app.post('/submit', (req, res) => {
     })
 });
 app.use('/', (req, res) => {
+    // var s = '';
+    // for (var name in req.headers) s += name + ': ' + req.headers[name] + '\n';
+    // console.log(s);
+    console.log(req.headers);
     res.sendFile(path.join(__dirname, "views", "index.html"));
 });
 app.listen(5000);

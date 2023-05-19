@@ -1,5 +1,4 @@
 //Variables
-
 let time = 30;
 let lock = 0;
 let index = 0;
@@ -7,27 +6,23 @@ let set_time = 30;
 const cursor = "\u258F";
 let typed = cursor;
 document.getElementById('user-input').innerHTML = typed;
-let original = document.getElementById('raw_text').innerText;
-
-const l = [];
-const org_arr = [];
-const special_index = [];
-
-var audio = new Audio('Audio/typewriter.wav');
-
-start_run();
-let ans_string = "";
-let back_string = original;
-let spe_index = 0;
-let blink = false;
-
-//Make array
-
+let original;
 function start_run() {
+    original = document.getElementById('raw_text').innerText;
+    back_string = original;
     for (let i = 0; i < original.length; i++) {
         org_arr.push('<span>' + original[i] + '</span>')
     }
 }
+const l = [];
+const org_arr = [];
+const special_index = [];
+let ans_string = "";
+let back_string = "";
+let spe_index = 0;
+let blink = false;
+
+//Make arra
 
 //Helpers
 
@@ -89,80 +84,75 @@ setInterval(() => {
 //main function runs on each keystroke
 
 addEventListener('keydown', (event) => {
-    if (lock == 1) {
-        setTimeout(() => {
 
-            //Keyboard
-
-            // audio.play();
-
-            let k = event.key.toLowerCase();
-            console.log("k:", k);
-
-            document.getElementById(k).style.backgroundColor = "white";
-            document.getElementById(k).style.color = "black";
-
-            setTimeout((k) => {
-                document.getElementById(k).style.backgroundColor = "#925050";
-                document.getElementById(k).style.color = "white";
-
-            }, 350, k);
-            // If any non needed key pressed
-            if (event.key == "Shift" || event.key == "Control" || event.key == "Alt" || event.key == "Meta" || event.key == "CapsLock") {
-                return;
-            }
-            // Go to next line
-            if (event.key == "Enter") {
-                l[index] = '<br>';
-                l.push('<span class="y">\u258F</span>');
-                typed = l.join("");
-                document.getElementById('user-input').innerHTML = typed;
-                document.getElementById('raw_text').innerHTML = back_string;
-                index++;
-                ans_string = ans_string + " ";
-                return;
-            }
-
-            // Implementing Backspace
-            if (event.key == "Backspace" && index > 0) {
-                l.pop();
-                l.pop();
-                l.push('<span class="y">\u258F</span>');
-                org_arr[index - 1] = '<span>' + original[index - 1] + '</span>';
-                typed = l.join("");
-                back_string = org_arr.join("");
-                index--;
-                ans_string = ans_string.slice(0, ans_string.length - 1);
-            }
-            // When key is pressed!!!
-            else {
-                l[index] = '<span class="t">x</span>';
-                l.push('<span class="y">\u258F</span>');
-                typed = l.join("");
-                ans_string = ans_string + event.key;
-                if (event.key == original[index]) {
-                    org_arr[index] = '<span class="gre">' + event.key + '</span>';
-                }
-                else {
-                    org_arr[index] = '<span class="red">' + event.key + '</span>';
-                }
-
-                back_string = org_arr.join("");
-                index++;
-            }
-            document.getElementById('raw_text').innerHTML = back_string;
-            document.getElementById('user-input').innerHTML = typed;
-        }, 10);
-    }
     if (lock == 0) {
         lock = 1;
     }
+    if (lock == 2) {
+        return;
+    }
+    setTimeout(() => {
+
+        let k = event.key.toLowerCase();
+        document.getElementById(k).style.backgroundColor = "white";
+        document.getElementById(k).style.color = "black";
+
+        setTimeout((k) => {
+            document.getElementById(k).style.backgroundColor = "#925050";
+            document.getElementById(k).style.color = "white";
+
+        }, 250, k);
+        // If any non needed key pressed
+        if (event.key == "Shift" || event.key == "Control" || event.key == "Alt" || event.key == "Meta" || event.key == "CapsLock") {
+            return;
+        }
+        // Go to next line
+        if (event.key == "Enter") {
+            l[index] = '<br>';
+            l.push('<span class="y">\u258F</span>');
+            typed = l.join("");
+            document.getElementById('user-input').innerHTML = typed;
+            document.getElementById('raw_text').innerHTML = back_string;
+            index++;
+            ans_string = ans_string + " ";
+            return;
+        }
+
+        // Implementing Backspace
+        if (event.key == "Backspace" && index > 0) {
+            l.pop();
+            l.pop();
+            l.push('<span class="y">\u258F</span>');
+            org_arr[index - 1] = '<span>' + original[index - 1] + '</span>';
+            typed = l.join("");
+            back_string = org_arr.join("");
+            index--;
+            ans_string = ans_string.slice(0, ans_string.length - 1);
+        }
+        // When key is pressed!!!
+        else {
+            l[index] = '<span class="t">x</span>';
+            l.push('<span class="y">\u258F</span>');
+            typed = l.join("");
+            ans_string = ans_string + event.key;
+            if (event.key == original[index]) {
+                org_arr[index] = '<span class="gre">' + event.key + '</span>';
+            }
+            else {
+                org_arr[index] = '<span class="red">' + event.key + '</span>';
+            }
+
+            back_string = org_arr.join("");
+            index++;
+        }
+        document.getElementById('raw_text').innerHTML = back_string;
+        document.getElementById('user-input').innerHTML = typed;
+    }, 10);
 })
 
 // ---------------------------------Blink it------------------------------------------------
 
 setInterval(() => {
-    console.log("blinked:", blink);
     if (blink == true) {
         l[index] = '<span class="t">\u258F</span>';
     }
