@@ -27,9 +27,7 @@
                 <div id="result">0 w/m</div>
             </div>
             <div class="container">
-                <span class="text-original" id="raw_text">
-                </span>
-                </textarea>
+                <span class="text-original" id="raw_text"></span>
                 <span class="text-user" id="user-input"></span>
             </div>
             <br>
@@ -254,12 +252,14 @@
         </div>
 
     </main>
-    <div class="main-popup">
-        <canvas width="500px" height="300px" id="canvas">
+    <div class="main-popup" id="popup">
+        <canvas width="800px" height="250px" id="canvas" class="graph-canvas">
         </canvas>
+        <span> Press a key to enter</span>
     </div>
     <script src="script.js"></script>
     <script src="start.js"></script>
+    <script src="graph.js"></script>
 </body>
 
 </html>

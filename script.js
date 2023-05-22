@@ -5,7 +5,9 @@ let index = 0;
 let set_time = 30;
 const cursor = "\u258F";
 let typed = cursor;
-document.getElementById('user-input').innerHTML = typed;
+let coord = [];
+
+document.getElementById('user-input').innerHTML = cursor;
 let original;
 function start_run() {
     original = document.getElementById('raw_text').innerText;
@@ -13,10 +15,11 @@ function start_run() {
     for (let i = 0; i < original.length; i++) {
         org_arr.push('<span>' + original[i] + '</span>')
     }
+
 }
-const l = [];
-const org_arr = [];
-const special_index = [];
+let l = [];
+let org_arr = [];
+let special_index = [];
 let ans_string = "";
 let back_string = "";
 let spe_index = 0;
@@ -72,11 +75,14 @@ setInterval(() => {
                 ws = ws + 1;
             }
         }
-        ws = Math.floor((ws) / (set_time - time) * 60) + " w/m"
-        document.getElementById("result").innerText = ws;
+        ws = Math.floor((ws) / (set_time - time) * 60)
+        document.getElementById("result").innerText = ws + " w/m";
+        // console.log(coord, ws);
+        coord.push([set_time - time, ws]);
         time = time - 1;
     }
     if (time == 0) {
+        draw_graph_axes();
         lock = 2;
     }
 }, 1000);
@@ -145,6 +151,7 @@ addEventListener('keydown', (event) => {
             back_string = org_arr.join("");
             index++;
         }
+        // console.log(typed);
         document.getElementById('raw_text').innerHTML = back_string;
         document.getElementById('user-input').innerHTML = typed;
     }, 10);
