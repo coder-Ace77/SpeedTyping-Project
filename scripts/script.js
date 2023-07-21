@@ -1,8 +1,8 @@
 //Variables
-let time = 30;
+let time = 10;
 let lock = 0;
 let index = 0;
-let set_time = 30;
+let set_time = 10;
 const cursor = "\u258F";
 let typed = cursor;
 let coord = [];
@@ -24,7 +24,7 @@ let ans_string = "";
 let back_string = "";
 let spe_index = 0;
 let blink = false;
-
+let curr_speed = 0;
 //Make arra
 
 //Helpers
@@ -77,7 +77,7 @@ setInterval(() => {
         }
         ws = Math.floor((ws) / (set_time - time) * 60)
         document.getElementById("result").innerText = ws + " w/m";
-        // console.log(coord, ws);
+        curr_speed = ws;
         coord.push([set_time - time, ws]);
         time = time - 1;
     }
@@ -91,6 +91,9 @@ setInterval(() => {
 
 addEventListener('keydown', (event) => {
 
+    if (event.key == "Shift" || event.key == "Control" || event.key == "Alt" || event.key == "Meta" || event.key == "CapsLock") {
+        return;
+    }
     if (lock == 0) {
         lock = 1;
     }
@@ -109,9 +112,6 @@ addEventListener('keydown', (event) => {
 
         }, 100, k);
         // If any non needed key pressed
-        if (event.key == "Shift" || event.key == "Control" || event.key == "Alt" || event.key == "Meta" || event.key == "CapsLock") {
-            return;
-        }
         // Go to next line
         if (event.key == "Enter") {
             l[index] = '<br>';
