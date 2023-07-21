@@ -107,7 +107,7 @@ addEventListener('keydown', (event) => {
             document.getElementById(k).style.backgroundColor = "#925050";
             document.getElementById(k).style.color = "white";
 
-        }, 250, k);
+        }, 100, k);
         // If any non needed key pressed
         if (event.key == "Shift" || event.key == "Control" || event.key == "Alt" || event.key == "Meta" || event.key == "CapsLock") {
             return;

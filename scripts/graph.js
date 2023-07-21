@@ -13,7 +13,12 @@ function plot_list(ctx) {
     setTimeout(() => {
         retry_lock = 1;
     }, 1000);
+}
 
+function clear_graph() {
+    ctx.fillStyle = "#404258";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "black";
 }
 
 let retry_lock = 0;
@@ -23,10 +28,11 @@ const ctx = canvas.getContext("2d");
 function draw_graph_axes() {
     const popCanvas = document.getElementById("popup");
     popCanvas.style.display = "flex";
-    const canvas = document.getElementById("canvas");
     console.log("Graph drawing.....");
     if (canvas.getContext) {
-        ctx.moveTo(50, 50);
+        clear_graph();
+        ctx.beginPath();
+        ctx.moveTo(50, 0);
         ctx.lineTo(50, 200);
         ctx.lineTo(700, 200);
         ctx.stroke();
