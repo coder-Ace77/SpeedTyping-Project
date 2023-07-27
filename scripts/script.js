@@ -1,8 +1,8 @@
 //Variables
-let time = 10;
+let time = 30;
 let lock = 0;
 let index = 0;
-let set_time = 10;
+let set_time = time;
 const cursor = "\u258F";
 let typed = cursor;
 let coord = [];
@@ -79,7 +79,7 @@ addEventListener('keydown', (event) => {
     }
     setTimeout(() => {
 
-        if (original[index] == " " && event.key != " ") {
+        if (original[index] == " " && event.key != " " && event.key != "Backspace") {
             return;
         }
         if (event.key == " " && original[index] != " ") {

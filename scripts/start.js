@@ -293,6 +293,8 @@ const list_arr = [
     "zune"
 ];
 generate_string(50);
+set_settings(false);
+apply_setting();
 function generate_string(n) {
     let ans = "", ignore = 20;
     for (let i = 0; i < n; i++) {
