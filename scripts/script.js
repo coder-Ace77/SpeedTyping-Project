@@ -33,36 +33,15 @@ function replace(str, index, replace) {
     return str.slice(0, index) + replace + str.slice(index + 1);
 }
 
-function Set15() {
-    console.log("Pressed");
-    if (lock == 0) {
-        time = 15;
-        document.getElementById('timer').innerText = 15;
-        set_time = 15;
-    }
-}
-function Set30() {
-    console.log("Pressed");
-    if (lock == 0) {
-        time = 30;
-        document.getElementById('timer').innerText = 30;
-        set_time = 30;
-    }
-}
-function Set60() {
-    console.log("Pressed");
-    if (lock == 0) {
-        time = 60;
-        document.getElementById('timer').innerText = 60;
-        set_time = 60;
-    }
-}
-
 //Evaulate 
 
 setInterval(() => {
     let el = document.getElementById('timer');
-    if (lock && time >= 0) {
+    console.log(lock);
+    if (lock == 2 || lock == 0) {
+        return;
+    }
+    if (lock == 1 && time >= 0) {
         el.innerText = +time;
         if (time < 10) {
             el.innerText = time;
@@ -88,9 +67,7 @@ setInterval(() => {
 }, 1000);
 
 //main function runs on each keystroke
-
 addEventListener('keydown', (event) => {
-
     if (event.key == "Shift" || event.key == "Control" || event.key == "Alt" || event.key == "Meta" || event.key == "CapsLock") {
         return;
     }
@@ -102,6 +79,12 @@ addEventListener('keydown', (event) => {
     }
     setTimeout(() => {
 
+        if (original[index] == " " && event.key != " ") {
+            return;
+        }
+        if (event.key == " " && original[index] != " ") {
+            return;
+        }
         let k = event.key.toLowerCase();
         document.getElementById(k).style.backgroundColor = "white";
         document.getElementById(k).style.color = "black";

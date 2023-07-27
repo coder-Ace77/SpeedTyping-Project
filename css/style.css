@@ -1,3 +1,7 @@
+/*{
+    outline: olive 2px solid;
+} */
+
 body {
     font-family: sans-serif;
     margin: 0%;
@@ -14,6 +18,9 @@ body {
 
 .nav-main {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+
 }
 
 .nav-logo {
@@ -29,11 +36,11 @@ body {
     margin-right: 30px;
 }
 
-.nav-whole {
+/* .nav-whole {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
+} */
 
 /* -----------------------------------------Text styling ---------------------------------------------------- */
 .article {

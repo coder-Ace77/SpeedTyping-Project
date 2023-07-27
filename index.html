@@ -6,19 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css\\style.css">
-    <link rel="stylesheet" href="css\\keyboard.css">
-    <link rel="stylesheet" href="css\\popup.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/keyboard.css">
+    <link rel="stylesheet" href="css/popup.css">
+    <link rel="stylesheet" href="css/modal.css">
 </head>
 
 <body>
-    <nav class="nav-whole">
-        <img src="logo\\logo.png" alt="Logo" class="nav-logo">
-        <div class="nav-main">
-            <span class="nav-item-active">15s</span>
-            <span class="nav-item-active">30s</span>
-            <span class="nav-item-active">60s</span>
-        </div>
+    <div class="nav-main">
+        <img src="logo/logo.png" alt="Logo" class="nav-logo">
+        <span class="button-setting">
+            <img src="logo/setting.png" style="height: 30px;" id="setting-button">
+        </span>
+    </div>
     </nav>
     <main class="main-box">
         <div class="article">
@@ -251,16 +251,54 @@
             </div>
         </div>
 
+        <div class="modal-box">
+            <div class="modal">
+                <ul>
+
+                    <li>
+                        <span>Keyboard Visibility</span>
+                        <input type="checkbox" id="isKeyVisible">
+                    </li>
+                    <li>
+                        <span>Dark Mode</span>
+                        <input type="checkbox" id="darkMode">
+                    </li>
+                    <li>
+                        <span>Time</span>
+                        <input type="number" id="time">
+                    </li>
+                    <li>
+                        <span>Primary Color</span>
+                        <input type="color" id="primaryColor" value="">
+                    </li>
+                    <li>
+                        <span>Secondry Color</span>
+                        <input type="color" id="secondryColor">
+                    </li>
+                    <li>
+                        <span>Background Color</span>
+                        <input type="color" id="backgroundColor">
+                    </li>
+                    <li>
+                        <button id="save-setting">Save</button>
+
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
     </main>
     <div class="main-popup" id="popup">
         <canvas width="800px" height="250px" id="canvas" class="graph-canvas">
         </canvas>
         <span> Press a button to retry</span>
     </div>
-    <script src="scripts\\script.js"></script>
-    <script src="scripts\\start.js"></script>
-    <script src="scripts\\graph.js"></script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/start.js"></script>
+    <script src="scripts/graph.js"></script>
     <script src="localstorage/storage.js"></script>
+    <script src="scripts/modal.js"></script>
 </body>
 
 </html>
