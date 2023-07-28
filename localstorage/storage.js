@@ -21,12 +21,7 @@ function set_settings(isModalOpen) {
         return;
     }
     if (isModalOpen == false) return;
-    const iskeyVisible = document.querySelector('#isKeyVisible').checked;
-    const darkMode = document.querySelector('#darkMode').checked;
     const time = document.querySelector('#time');
-    // console.log(iskeyVisible, darkMode, time.value);
-    localStorage.setItem('isKeyVisible', iskeyVisible);
-    localStorage.setItem('darkMode', darkMode);
     localStorage.setItem('time', time.value);
 }
 

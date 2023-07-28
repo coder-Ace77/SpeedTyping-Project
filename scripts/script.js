@@ -93,7 +93,7 @@ addEventListener('keydown', (event) => {
             document.getElementById(k).style.backgroundColor = "#925050";
             document.getElementById(k).style.color = "white";
 
-        }, 100, k);
+        }, 250, k);
         // If any non needed key pressed
         // Go to next line
         if (event.key == "Enter") {

@@ -78,6 +78,7 @@ h1 {
 
 .key--letter {
     line-height: 2.8em;
+    transition: color 0.1s linear;
 }
 
 .key--bottom-left>* {

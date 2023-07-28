@@ -253,39 +253,34 @@
 
         <div class="modal-box">
             <div class="modal">
-                <ul>
-
-                    <li>
-                        <span>Keyboard Visibility</span>
-                        <input type="checkbox" id="isKeyVisible">
+                <div class="modal-inner">
+                    <li class="modal-list-item">
+                        <span class="modal-list-start">Keyboard Visibility</span>
+                        <span class="switch-button modal-list-end" id="key-visible">
+                            <span class="switch-inner">
+                            </span>
+                        </span>
                     </li>
-                    <li>
-                        <span>Dark Mode</span>
-                        <input type="checkbox" id="darkMode">
+                    <li class="modal-list-item">
+                        <span class="modal-list-start">Dark Mode</span>
+                        <span class="switch-button modal-list-end" id="dark-mode">
+                            <span class="switch-inner">
+                            </span>
+                        </span>
                     </li>
-                    <li>
-                        <span>Time</span>
-                        <input type="number" id="time">
+                    <li class="modal-list-item">
+                        <span class="modal-list-start">Time</span>
+                        <input type="number" id="time" class="modal-list-end">
                     </li>
-                    <li>
-                        <span>Primary Color</span>
-                        <input type="color" id="primaryColor" value="">
+                    <li class="modal-list-item">
+                        <span class="modal-list-start">User Name</span>
+                        <input type="text" id="user-name" class="modal-list-end">
                     </li>
-                    <li>
-                        <span>Secondry Color</span>
-                        <input type="color" id="secondryColor">
+                    <li class="modal-list-item-buttons">
+                        <button id="save-setting" class="modal-list-button">Save</button>
+                        <button id="setting-cancel" class="modal-list-button">Cancel</button>
                     </li>
-                    <li>
-                        <span>Background Color</span>
-                        <input type="color" id="backgroundColor">
-                    </li>
-                    <li>
-                        <button id="save-setting">Save</button>
-
-                    </li>
-
-                </ul>
-
+                </div>
             </div>
         </div>
     </main>
