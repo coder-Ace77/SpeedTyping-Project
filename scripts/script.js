@@ -6,6 +6,7 @@ let set_time = time;
 const cursor = "\u258F";
 let typed = cursor;
 let coord = [];
+let currWordCount = 1;
 
 document.getElementById('user-input').innerHTML = cursor;
 let original;
@@ -79,12 +80,30 @@ addEventListener('keydown', (event) => {
     }
     setTimeout(() => {
 
+        if (event.key == " " && (original[index] == " " || original[index] == "\n")) {
+            currWordCount++;
+        }
+        console.log("Current word count:", currWordCount);
+        if (currWordCount >= 20 && event.key == " ") {
+            console.log("Inside");
+            l[index] = '<br>';
+            l.push('<span class="y">\u258F</span>');
+            typed = l.join("");
+            document.getElementById('user-input').innerHTML = typed;
+            document.getElementById('raw_text').innerHTML = back_string;
+            index++;
+            ans_string = ans_string + " ";
+            currWordCount = 1;
+            return;
+        }
         if (original[index] == " " && event.key != " " && event.key != "Backspace") {
             return;
         }
         if (event.key == " " && original[index] != " ") {
             return;
         }
+
+
         let k = event.key.toLowerCase();
         document.getElementById(k).style.backgroundColor = "white";
         document.getElementById(k).style.color = "black";
@@ -95,17 +114,6 @@ addEventListener('keydown', (event) => {
 
         }, 250, k);
         // If any non needed key pressed
-        // Go to next line
-        if (event.key == "Enter") {
-            l[index] = '<br>';
-            l.push('<span class="y">\u258F</span>');
-            typed = l.join("");
-            document.getElementById('user-input').innerHTML = typed;
-            document.getElementById('raw_text').innerHTML = back_string;
-            index++;
-            ans_string = ans_string + " ";
-            return;
-        }
 
         // Implementing Backspace
         if (event.key == "Backspace" && index > 0) {
@@ -115,6 +123,10 @@ addEventListener('keydown', (event) => {
             org_arr[index - 1] = '<span>' + original[index - 1] + '</span>';
             typed = l.join("");
             back_string = org_arr.join("");
+            if (original[index - 1] == " ") {
+                currWordCount--;
+                console.log("Current count descreased!!!");
+            }
             index--;
             ans_string = ans_string.slice(0, ans_string.length - 1);
         }
