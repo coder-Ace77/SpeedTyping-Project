@@ -12,4 +12,10 @@
 
 7. Time animation -> like found in mobile phones
 
-8. 
+
+
+// Desgin properties
+
+Background color : 303030
+
+Primary color : CEBA9B
